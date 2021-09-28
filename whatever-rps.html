@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <title>somethingsomethingscissors</title>
+        <style>
+            body {
+                        background-color: darksalmon;
+                    }
+
+                    .buttonRock-class { 
+                        background-color: #4CAF50; /* Green */
+                        border: none;
+                        color: white;
+                        padding: 15px 32px;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 30px;   
+                        position: aboslute;
+                        top: 50%;
+                 }
+
+                 .buttonPaper-class { 
+                        background-color: teal; /* Green */
+                        border: none;
+                        color: white;
+                        padding: 15px 32px;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 30px;   
+                        position: aboslute;
+                        top: 50%;
+                 }
+
+                 .buttonScissors-class { 
+                        background-color: violet; /* Green */
+                        border: none;
+                        color: white;
+                        padding: 15px 32px;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 30px;   
+                        position: aboslute;
+                        top: 50%;
+                 }
+
+                 .centeringDiv {
+                     text-align: center;
+                     
+                 }
+                    </style>
+    </head>
+    <body>
+       
+        
+<!--
+        <button id="buttonRock">Rock</button>
+<button id="buttTwo">Paper</button>
+<button id="buttThree">Scissors</button>
+  -->
+
+  <script>
+
+
+const stolenArray = ["rock", "paper", "scissors"];
+
+let draw = 0;
+let player = 0;
+let cpu = 0;
+
+function computerPlay(){
+    return stolenArray[Math.floor(Math.random() * stolenArray.length)];
+}
+
+
+
+
+
+const buttonRock = document.createElement('button');
+    buttonRock.classList.add('buttonRock-class')
+    buttonRock.textContent = 'Rock';
+    buttonRock.onclick = function playRound (playerSelection, computerSelection){
+
+         playerSelection = 'rock';
+         computerSelection = computerPlay();
+
+
+    if (playerSelection == computerSelection) { 
+        draw++;
+        textyNd.textContent = 'Player points : ' + player + ' Computer points: ' + cpu;
+    }   else if (computerSelection == 'scissors') { 
+        player++;
+            if (player === 5){
+                alert('PLAYER WINS');
+                player = 0;
+                cpu = 0;
+            } 
+            if (cpu === 5){
+                alert('CPU WINS');
+                player = 0;
+                cpu = 0;
+            } 
+         textyNd.textContent = 'Player points : ' + player + ' Computer points: ' + cpu;
+    }   else if (computerSelection == "paper"){
+                cpu++;
+                if (player === 5){
+                alert('PLAYER WINS');
+                player = 0;
+                cpu = 0;
+            } 
+            if (cpu === 5){
+                alert('CPU WINS');
+                player = 0;
+                cpu = 0;
+            } 
+                 textyNd.textContent = 'Player points : ' + player + ' Computer points: ' + cpu;
+            }    else { 
+            	console.log("You need to chose from Rock, Paper and Scissors!!");
+            }  
+
+}
+
+  
+const buttonPaper = document.createElement('button');
+        buttonPaper.textContent = 'Paper';
+        buttonPaper.classList.add('buttonPaper-class')
+        buttonPaper.onclick = function playRound(playerSelection, computerSelection){
+            playerSelection = 'paper';
+         computerSelection = computerPlay();
+
+
+    if (playerSelection == computerSelection) { 
+        draw++;
+        textyNd.textContent = 'Player points : ' + player + ' Computer points: ' + cpu;
+    }   else if (computerSelection == 'scissors') { 
+        cpu++;
+        if (player === 5){
+                alert('PLAYER WINS');
+                player = 0;
+                cpu = 0;
+            } 
+            if (cpu === 5){
+                alert('CPU WINS');
+                player = 0;
+                cpu = 0;
+            } 
+        textyNd.textContent = 'Player points : ' + player + ' Computer points: ' + cpu;
+    }   else if (computerSelection == "rock"){
+                player++;
+                if (player === 5){
+                alert('PLAYER WINS');
+                player = 0;
+                cpu = 0;
+            } 
+            if (cpu === 5){
+                alert('CPU WINS');
+                player = 0;
+                cpu = 0;
+            } 
+                textyNd.textContent = 'Player points : ' + player + ' Computer points: ' + cpu;
+            }    else { 
+            	console.log("You need to chose from Rock, Paper and Scissors!!");
+            }  
+        }
+
+        const buttonScissors = document.createElement('button');
+        buttonScissors.textContent = 'Scissors';
+        buttonScissors.classList.add('buttonScissors-class')
+        buttonScissors.onclick = function playRound(playerSelection, computerSelection){
+            playerSelection = 'scissors';
+         computerSelection = computerPlay();
+
+
+    if (playerSelection == computerSelection) { 
+        draw++;
+        textyNd.textContent = 'Player points : ' + player + ' Computer points: ' + cpu;
+    }   else if (computerSelection == 'rock') { 
+        cpu++;
+        if (player === 5){
+                alert('PLAYER WINS');
+                player = 0;
+                cpu = 0;
+            } 
+            if (cpu === 5){
+                alert('CPU WINS');
+                player = 0;
+                cpu = 0;
+            } 
+        textyNd.textContent = 'Player points : ' + player + ' Computer points: ' + cpu;
+    }   else if (computerSelection == "paper"){
+                player++;
+                if (player === 5){
+                alert('PLAYER WINS');
+                player = 0;
+                cpu = 0;
+            } 
+            if (cpu === 5){
+                alert('CPU WINS');
+                player = 0;
+                cpu = 0;
+            } 
+                textyNd.textContent = 'Player points : ' + player + ' Computer points: ' + cpu;
+            }    else { 
+            	console.log("You need to chose from Rock, Paper and Scissors!!");
+            }  
+        }
+
+
+    document.body.appendChild(buttonRock);
+    document.body.appendChild(buttonPaper);
+    document.body.appendChild(buttonScissors);
+    
+    const myDiv = document.createElement('div');
+        myDiv.classList.add('centeringDiv');
+
+let para = document.createElement('p');
+let textyNd = document.createTextNode('Best of 5');
+para.appendChild(textyNd);
+document.body.appendChild(para); 
+
+
+
+    //After player++ and cpu++, make the text of our paragraph equal:
+    //console.log('PLAYER POINTS: ' + player + ' CPU POINTS: ' + cpu);
+
+
+
+    /*
+
+    //------PASTE THE FOLLOWING CODE ABOVE THIS COMMENT:
+  function result() {
+        if (draw > player && draw > cpu) {
+            console.log("Draw. Nobody wins the match");
+        }   else if (player > cpu) {
+            console.log(" Player wins the match ");
+        }   else {
+            console.log (" Computer wins the match ");
+        }
+    }
+
+//------------------------------------DO NOT PASTE THIS:
+
+    for (let match = 0; match < 5; match++) {
+        let playerSelection = prompt("Rock, paper or scissors?");
+        let computerSelection = computerPlay();
+        console.log('computer plays ' + computerSelection);
+        playRound(playerSelection, computerSelection);
+        
+    }
+    */
+
+
+    // result(); 
+
+            </script>
